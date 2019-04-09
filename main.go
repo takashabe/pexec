@@ -49,6 +49,7 @@ func execution(cmd *cobra.Command, args []string) {
 			ec := exec.Command("sh", "-c", command)
 			ec.Stdout = os.Stdout
 			ec.Stderr = os.Stderr
+			ec.Stdin = os.Stdin
 			if err := ec.Run(); err != nil {
 				fmt.Printf("received error: %s, command: %s", err.Error(), command)
 			}
